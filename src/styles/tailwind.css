@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-text;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-background text-sm antialiased;
+    overscroll-behavior: none;
+  }
+
+  .dark body {
+    @apply bg-dark-background text-dark-text;
+  }
+}
+
+@layer components {
+  .btn-icon {
+    @apply flex items-center justify-center rounded-full p-2 text-text-secondary hover:bg-background-light transition-colors;
+  }
+  
+  .dark .btn-icon {
+    @apply text-dark-text-secondary hover:bg-dark-background-light;
+  }
+  
+  .post-content {
+    @apply text-sm leading-relaxed break-words;
+  }
+  
+  .post-content a {
+    @apply text-primary underline;
+  }
+  
+  .post-content p {
+    @apply mb-2;
+  }
+  
+  .skeleton {
+    @apply bg-background-light animate-pulse rounded;
+  }
+
+  .dark .skeleton {
+    @apply bg-dark-background-light;
+  }
+} 
