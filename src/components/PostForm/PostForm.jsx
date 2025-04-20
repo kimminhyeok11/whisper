@@ -139,6 +139,8 @@ function PostForm({ onClose, editPost = null }) {
         title: content.split('\n')[0].substring(0, 100), // 첫 줄을 제목으로 사용
         author: authorId, // author 필드는 UUID 타입이어야 함
         content,
+        file_url: fileUrls[0] || null, // 첫 번째 파일 URL (하위 호환)
+        file_urls: fileUrls, // 다중 파일 URL 배열
         created_at: new Date().toISOString()
       };
       
@@ -149,6 +151,8 @@ function PostForm({ onClose, editPost = null }) {
           .update({
             title: content.split('\n')[0].substring(0, 100),
             content,
+            file_url: fileUrls[0] || null,
+            file_urls: fileUrls,
             updated_at: new Date().toISOString()
           })
           .eq('id', editPost.id);
